@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import "./Todo.css";
 
 const Todo = ({ todo, remove, edit, done }) => {
   const [mode, setMode] = useState("list");
   const [text, setText] = useState(todo.text);
+
   return (
     <div className="Todo">
       {mode === "list" ? (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AddTodo.css";
 
 const AddTodo = ({ add }) => {
   const [text, setText] = useState("");

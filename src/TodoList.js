@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Todo from "./Todo";
 import { Store } from "./store";
+import "./TodoList.css";
 
 const filtering = (todos, filter) => {
   switch (filter) {
@@ -18,7 +19,7 @@ const TodoList = () => {
   const [filter, setFilter] = useState("all");
 
   return (
-    <div>
+    <div className="TodoList">
       <select id="filter-select" onChange={e => setFilter(e.target.value)}>
         <option value="all">all</option>
         <option value="undone">Undone</option>
