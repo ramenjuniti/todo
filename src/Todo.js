@@ -17,7 +17,7 @@ const Todo = ({ todo, remove, edit, done }) => {
             Edit
           </button>
           <button className="DoneTodo" onClick={done}>
-            Done
+            {todo.done ? "Undone" : "Done"}
           </button>
         </>
       ) : (
