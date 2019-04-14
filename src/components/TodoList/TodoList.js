@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import Todo from "./Todo";
-import { Store } from "./store";
+import Todo from "../Todo";
+import { Store } from "../../store";
 import "./TodoList.css";
 
 const filtering = (todos, filter) => {

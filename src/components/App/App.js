@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { Store } from "./store";
-import TodoList from "./TodoList";
-import AddTodo from "./AddTodo";
+import { Store } from "../../store";
+import TodoList from "../TodoList";
+import AddTodo from "../AddTodo";
 import "./App.css";
 
 const App = () => {
