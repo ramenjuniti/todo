@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Todo = ({ todo, done, remove, edit }) => {
+const Todo = ({ todo, remove, edit, done }) => {
   const [mode, setMode] = useState("list");
   const [text, setText] = useState(todo.text);
   return (
