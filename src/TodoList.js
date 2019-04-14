@@ -1,13 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Todo from "./Todo";
 import { Store } from "./store";
 
+const filtering = (todos, filter) => {
+  switch (filter) {
+    case "undone":
+      return todos.filter(t => !t.done);
+    case "done":
+      return todos.filter(t => t.done);
+    default:
+      return todos;
+  }
+};
+
 const TodoList = () => {
   const { state, dispatch } = useContext(Store);
+  const [filter, setFilter] = useState("all");
 
   return (
     <div>
-      {state.todos.map(t => (
+      <select id="filter-select" onChange={e => setFilter(e.target.value)}>
+        <option value="all">all</option>
+        <option value="undone">Undone</option>
+        <option value="done">Done</option>
+      </select>
+      {filtering(state.todos, filter).map(t => (
         <Todo
           key={t.id}
           todo={t}
