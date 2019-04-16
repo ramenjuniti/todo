@@ -6,12 +6,14 @@ const AddTodo = ({ add }) => {
   return (
     <div className="AddTodo">
       <input
+        data-testid="AddTodoInput"
         value={text}
         onChange={e => setText(e.target.value)}
-        className="AddTodoInput"
+        className="AddTodo-input"
       />
       <button
-        className="AddTodoButton"
+        data-testid="AddTodo-button"
+        className="AddTodo-button"
         onClick={() => {
           add(text);
           setText("");

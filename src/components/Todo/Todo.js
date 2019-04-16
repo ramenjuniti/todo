@@ -6,7 +6,7 @@ const Todo = ({ todo, remove, edit, done }) => {
   const [text, setText] = useState(todo.text);
 
   return (
-    <div className="Todo">
+    <div data-testid="Todo" className="Todo">
       {mode === "list" ? (
         <>
           <span className="TodoText">
