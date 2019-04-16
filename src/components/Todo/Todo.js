@@ -2,34 +2,12 @@ import React, { useState } from "react";
 import "./Todo.css";
 
 const Todo = ({ todo, remove, edit, done }) => {
-  const [mode, setMode] = useState("list");
+  const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(todo.text);
 
   return (
     <div className="Todo">
-      {mode === "list" ? (
-        <>
-          <input
-            type="checkbox"
-            className="Todo-done"
-            onClick={done}
-            checked={todo.done}
-          />
-          {/* {todo.done ? "Undone" : "Done"}
-          </button> */}
-          <span className="Todo-text">
-            {todo.done ? <s>{todo.text}</s> : todo.text}
-          </span>
-          <div className="Todo-buttons">
-            <button className="Todo-remove" onClick={remove}>
-              Remove
-            </button>
-            <button className="Todo-edit" onClick={() => setMode("edit")}>
-              Edit
-            </button>
-          </div>
-        </>
-      ) : (
+      {isEditing ? (
         <>
           <input
             value={text}
@@ -40,14 +18,37 @@ const Todo = ({ todo, remove, edit, done }) => {
             className="Todo-edit-save"
             onClick={() => {
               edit(text);
-              setMode("list");
+              setIsEditing(false);
             }}
           >
             Save
           </button>
-          <button className="Todo-edit-cancel" onClick={() => setMode("list")}>
+          <button
+            className="Todo-edit-cancel"
+            onClick={() => setIsEditing(false)}
+          >
             Cancel
           </button>
+        </>
+      ) : (
+        <>
+          <input
+            type="checkbox"
+            className="Todo-done"
+            onClick={done}
+            checked={todo.done}
+          />
+          <span className="Todo-text">
+            {todo.done ? <s>{todo.text}</s> : todo.text}
+          </span>
+          <div className="Todo-buttons">
+            <button className="Todo-remove" onClick={remove}>
+              Remove
+            </button>
+            <button className="Todo-edit" onClick={() => setIsEditing(true)}>
+              Edit
+            </button>
+          </div>
         </>
       )}
     </div>
