@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Store } from "../../store";
 import "./AddTodo.css";
 
-const AddTodo = ({ add }) => {
+const AddTodo = () => {
+  const { dispatch } = useContext(Store);
   const [text, setText] = useState("");
+
   return (
     <div className="AddTodo">
       <input
@@ -15,7 +18,7 @@ const AddTodo = ({ add }) => {
         data-testid="AddTodo-button"
         className="AddTodo-button"
         onClick={() => {
-          add(text);
+          dispatch({ type: "add", text: text });
           setText("");
         }}
       >
