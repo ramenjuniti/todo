@@ -1,2 +1,7 @@
 .Todo {
+  margin: 0 0 1em;
+  font-size: 1.5em;
+  display: flex;
+  vertical-align: center;
+  justify-content: space-between;
 }

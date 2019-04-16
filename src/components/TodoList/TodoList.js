@@ -20,20 +20,24 @@ const TodoList = () => {
 
   return (
     <div className="TodoList">
-      <select id="filter-select" onChange={e => setFilter(e.target.value)}>
-        <option value="all">all</option>
-        <option value="undone">Undone</option>
-        <option value="done">Done</option>
-      </select>
-      {filtering(state.todos, filter).map(t => (
-        <Todo
-          key={t.id}
-          todo={t}
-          done={() => dispatch({ type: "done", id: t.id })}
-          remove={() => dispatch({ type: "remove", id: t.id })}
-          edit={text => dispatch({ type: "edit", id: t.id, text: text })}
-        />
-      ))}
+      <div className="TodoList-select">
+        <select onChange={e => setFilter(e.target.value)}>
+          <option value="all">all</option>
+          <option value="undone">Undone</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div className="TodoList-todos">
+        {filtering(state.todos, filter).map(t => (
+          <Todo
+            key={t.id}
+            todo={t}
+            done={() => dispatch({ type: "done", id: t.id })}
+            remove={() => dispatch({ type: "remove", id: t.id })}
+            edit={text => dispatch({ type: "edit", id: t.id, text: text })}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -6,31 +6,38 @@ const Todo = ({ todo, remove, edit, done }) => {
   const [text, setText] = useState(todo.text);
 
   return (
-    <div data-testid="Todo" className="Todo">
+    <div className="Todo">
       {mode === "list" ? (
         <>
-          <span className="TodoText">
+          <input
+            type="checkbox"
+            className="Todo-done"
+            onClick={done}
+            checked={todo.done}
+          />
+          {/* {todo.done ? "Undone" : "Done"}
+          </button> */}
+          <span className="Todo-text">
             {todo.done ? <s>{todo.text}</s> : todo.text}
           </span>
-          <button className="RemoveTodo" onClick={remove}>
-            Remove
-          </button>
-          <button className="EditTodo" onClick={() => setMode("edit")}>
-            Edit
-          </button>
-          <button className="DoneTodo" onClick={done}>
-            {todo.done ? "Undone" : "Done"}
-          </button>
+          <div className="Todo-buttons">
+            <button className="Todo-remove" onClick={remove}>
+              Remove
+            </button>
+            <button className="Todo-edit" onClick={() => setMode("edit")}>
+              Edit
+            </button>
+          </div>
         </>
       ) : (
         <>
           <input
             value={text}
             onChange={e => setText(e.target.value)}
-            className="EditTodoInput"
+            className="Todo-edit-input"
           />
           <button
-            className="EditTodoSave"
+            className="Todo-edit-save"
             onClick={() => {
               edit(text);
               setMode("list");
@@ -38,7 +45,7 @@ const Todo = ({ todo, remove, edit, done }) => {
           >
             Save
           </button>
-          <button className="EditTodoCancel" onClick={() => setMode("list")}>
+          <button className="Todo-edit-cancel" onClick={() => setMode("list")}>
             Cancel
           </button>
         </>

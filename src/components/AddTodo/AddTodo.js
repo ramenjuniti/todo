@@ -9,13 +9,11 @@ const AddTodo = () => {
   return (
     <div className="AddTodo">
       <input
-        data-testid="AddTodoInput"
         value={text}
         onChange={e => setText(e.target.value)}
         className="AddTodo-input"
       />
       <button
-        data-testid="AddTodo-button"
         className="AddTodo-button"
         disabled={!text}
         onClick={() => {

@@ -1,2 +1,21 @@
 .TodoList {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d8d8d8;
+  width: 80vw;
+}
+
+.TodoList-select {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 1em;
+}
+
+#filter-select {
+  width: 72px;
+}
+
+.TodoList-todos {
 }

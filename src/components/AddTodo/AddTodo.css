@@ -1,0 +1,16 @@
+.AddTodo {
+  padding: 0 0 1em;
+  display: flex;
+}
+
+.AddTodo-input {
+  padding: 0.5em 1em;
+  width: 50vw;
+  font-size: 1.5em;
+  max-width: 400px;
+}
+
+.AddTodo-button {
+  width: 50px;
+  background-color: #d8d8d8;
+}
