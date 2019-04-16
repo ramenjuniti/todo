@@ -17,6 +17,7 @@ const AddTodo = () => {
       <button
         data-testid="AddTodo-button"
         className="AddTodo-button"
+        disabled={!text}
         onClick={() => {
           dispatch({ type: "add", text: text });
           setText("");
