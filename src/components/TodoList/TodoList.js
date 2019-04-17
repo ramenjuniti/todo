@@ -3,20 +3,20 @@ import Todo from "../Todo";
 import { Store } from "../../store";
 import "./TodoList.css";
 
-const filtering = (todos, filter) => {
-  switch (filter) {
-    case "undone":
-      return todos.filter(t => !t.done);
-    case "done":
-      return todos.filter(t => t.done);
-    default:
-      return todos;
-  }
-};
-
 const TodoList = () => {
   const { state, dispatch } = useContext(Store);
   const [filter, setFilter] = useState("all");
+
+  const filtering = filter => {
+    switch (filter) {
+      case "undone":
+        return state.todos.filter(t => !t.done);
+      case "done":
+        return state.todos.filter(t => t.done);
+      default:
+        return state.todos;
+    }
+  };
 
   return (
     <div className="TodoList">
@@ -28,7 +28,7 @@ const TodoList = () => {
         </select>
       </div>
       <div className="TodoList-todos">
-        {filtering(state.todos, filter).map(t => (
+        {filtering(filter).map(t => (
           <Todo
             key={t.id}
             todo={t}

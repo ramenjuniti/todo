@@ -4,13 +4,17 @@
 }
 
 .AddTodo-input {
-  padding: 0.5em 1em;
-  width: 50vw;
+  padding: 0.5em;
   font-size: 1.5em;
-  max-width: 400px;
 }
 
 .AddTodo-button {
   width: 50px;
   background-color: #d8d8d8;
+}
+
+@media screen and (max-width: 480px) {
+  .AddTodo-input {
+    width: 60vw;
+  }
 }
