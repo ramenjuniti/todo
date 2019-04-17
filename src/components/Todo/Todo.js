@@ -36,7 +36,7 @@ const Todo = ({ todo, remove, edit, done }) => {
             type="checkbox"
             className="Todo-done"
             onClick={done}
-            checked={todo.done}
+            defaultChecked={todo.done}
           />
           <span className="Todo-text">
             {todo.done ? <s>{todo.text}</s> : todo.text}
