@@ -20,7 +20,7 @@ const Todo = ({ todo, remove, edit, done }) => {
   };
 
   return (
-    <div className="Todo">
+    <div data-testid="todo" className="Todo">
       {isEditing ? (
         <>
           <div className="Todo-edit-input-container">

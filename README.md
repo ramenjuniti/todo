@@ -8,4 +8,3 @@ cd todo
 yarn
 yarn start
 ```
-

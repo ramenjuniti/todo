@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { cleanup } from "react-testing-library";
+import { cleanup, render } from "react-testing-library";
 import { Provider } from "../../store";
 import TodoList from "./TodoList";
 
@@ -15,4 +15,14 @@ it("renders without crashing", () => {
     div
   );
   ReactDOM.unmountComponentAtNode(div);
+});
+
+it("default state length is 2", () => {
+  const TodoListContainer = render(
+    <Provider>
+      <TodoList />
+    </Provider>
+  );
+  const todo = TodoListContainer.getAllByTestId("todo");
+  expect(todo).toHaveLength(2);
 });
